@@ -1,0 +1,24 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Contrato de entrada para inferencia Iris",
+  "description": "Un objeto por flor, con cuatro mediciones en centímetros. No se incluye la especie.",
+  "x-contract-version": "1.0.0",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["sepal_length_cm", "sepal_width_cm", "petal_length_cm", "petal_width_cm"],
+  "properties": {
+    "sepal_length_cm": {"type": "number", "minimum": 0.1, "maximum": 12.0, "description": "Longitud del sépalo en cm"},
+    "sepal_width_cm": {"type": "number", "minimum": 0.1, "maximum": 8.0, "description": "Ancho del sépalo en cm"},
+    "petal_length_cm": {"type": "number", "minimum": 0.1, "maximum": 10.0, "description": "Longitud del pétalo en cm"},
+    "petal_width_cm": {"type": "number", "minimum": 0.1, "maximum": 5.0, "description": "Ancho del pétalo en cm"}
+  },
+  "examples": [
+    {"sepal_length_cm": 5.1, "sepal_width_cm": 3.5, "petal_length_cm": 1.4, "petal_width_cm": 0.2}
+  ],
+  "x-invalid-example": {
+    "sepal_length_cm": "5.1",
+    "sepal_width_cm": null,
+    "petal_length_cm": -1.4,
+    "petal_width_cm": 0.2
+  }
+}
